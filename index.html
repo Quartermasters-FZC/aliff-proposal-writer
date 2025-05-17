@@ -3,216 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Proposal Writer – An Agentic AI System by Aliff Capital and Quartermasters for GovCon automation."/>
-  <title>Proposal Writer | Agentic AI for Federal Proposals</title>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <meta name="description" content="Proposal Writer – AI-powered agentic system for GovCon automation." />
+  <title>Proposal Writer | AI Agent for Federal Contracts</title>
   <style>
     :root {
-      --primary: #0a3161;
-      --accent: #b31942;
-      --bg: #f9f9f9;
-      --text: #222;
+      --primary: #111827;
+      --accent: #6366f1;
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --white: #ffffff;
     }
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
     }
     header {
-      background: linear-gradient(120deg, var(--primary), var(--accent));
-      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--white);
+      padding: 4rem 2rem;
       text-align: center;
-      position: relative;
-      padding: 6rem 2rem 4rem;
-      overflow: hidden;
-    }
-    #particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-    .header-content {
-      position: relative;
-      z-index: 1;
     }
     header h1 {
       font-size: 3rem;
-      animation: fadeInDown 1s ease-in-out;
+      margin-bottom: 1rem;
     }
     header p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto;
     }
     .cta {
+      display: inline-block;
       margin-top: 2rem;
-      padding: 0.8rem 2rem;
-      font-size: 1rem;
-      background: white;
+      background-color: var(--white);
       color: var(--primary);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
       font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .cta:hover {
+      background-color: var(--accent);
+      color: var(--white);
     }
     .section {
-      padding: 3rem 2rem;
-      max-width: 960px;
+      padding: 4rem 2rem;
+      max-width: 1200px;
       margin: auto;
     }
-    .features, .roadmap {
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--primary);
+    }
+    .feature-grid {
       display: grid;
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .features div, .roadmap div {
-      background: white;
-      border-radius: 10px;
+    .feature {
+      background-color: var(--white);
+      border-radius: 0.75rem;
       padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
     }
-    .features div:hover, .roadmap div:hover {
+    .feature:hover {
       transform: translateY(-5px);
     }
-    h2.section-title {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      text-align: center;
+    .feature h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
     }
-    .branding {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      align-items: center;
-      margin-top: 2rem;
-      flex-wrap: wrap;
+    .ticker-strip {
+      background: var(--accent);
+      color: var(--white);
+      overflow: hidden;
+      white-space: nowrap;
     }
-    .branding img {
-      height: 60px;
-      object-fit: contain;
-      transition: transform 0.3s;
+    .ticker-content {
+      display: inline-block;
+      padding: 1rem;
+      animation: tickerScroll 60s linear infinite;
+      font-size: 1rem;
+      font-weight: 500;
     }
-    .branding img:hover {
-      transform: scale(1.1);
-    }
-    .lottie-wrapper {
-      max-width: 360px;
-      margin: 0 auto 2rem;
+    @keyframes tickerScroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
     footer {
+      background-color: var(--primary);
+      color: var(--white);
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #666;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .section { padding: 2rem 1rem; }
-      .branding { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div id="particles-js"></div>
-    <div class="header-content">
-      <div class="lottie-wrapper">
-        <!-- Lottie animation removed due to display error -->
-      </div>
-      <h1>Proposal Writer</h1>
-      <p>Agentic AI for Winning U.S. Federal Contracts</p>
-      <a href="https://github.com/Quartermasters-FZC/aliff-proposal-writer">
-        <button class="cta">View Repository</button>
-      </a>
-      <div class="branding">
-        <a href="https://aliffcapital.com" target="_blank">
-          <img src="https://aliffcapital.com/wp-content/uploads/2025/05/cropped-Aliff-Capital.png" alt="Aliff Capital Logo" />
-        </a>
-        <a href="https://quartermasters.me" target="_blank">
-          <img src="https://quartermasters.me/wp-content/uploads/2024/12/cropped-Quartermasters-Logo-1-1.png" alt="Quartermasters Logo" />
-        </a>
-      </div>
-    </div>
+    <h1>Proposal Writer</h1>
+    <p>The next-gen AI-powered agent that automates your entire federal contracting workflow—from discovery to delivery.</p>
+    <a href="https://github.com/Quartermasters-FZC/aliff-proposal-writer" class="cta">Explore on GitHub</a>
   </header>
 
+  <div class="ticker-strip">
+    <div class="ticker-content">
+      Real-time RFP Monitoring • Risk Scoring • Subcontractor Engagement • Legal Drafting • Financial Modeling • Proposal Generation • Go/No-Go Decision Support • Market Intelligence • Logistics Planning • Team Coordination •
+    </div>
+  </div>
+
   <section class="section">
-    <h2 class="section-title">What It Does</h2>
-    <div class="features">
-      <div><strong>RFP Monitoring</strong><br />Automatically detects, tracks, and analyzes U.S. federal solicitations from sources like SAM.gov.</div>
-      <div><strong>Opportunity Analysis</strong><br />Scores and filters opportunities based on compliance fit, risk factors, and past performance alignment.</div>
-      <div><strong>Market Research Engine</strong><br />Searches historical awards, vendor catalogs, pricing trends, and demand indicators to enrich proposal strategy.</div>
-      <div><strong>Smart Scaffolding</strong><br />Generates complete outlines for Executive Summary, Technical Approach, and Pricing Strategy.</div>
-      <div><strong>Subcontractor Advisory</strong><br />Identifies, recommends, and assists in managing supplier and partner engagement strategies.</div>
-      <div><strong>Risk Intelligence</strong><br />Evaluates geopolitical, pricing, and compliance risks with mitigation strategies.</div>
-      <div><strong>Financial Modeling</strong><br />Builds pricing models, salary structures, indirect cost breakdowns, and profitability forecasts.</div>
-      <div><strong>Proposal Generation</strong><br />Compiles full proposals using generative AI with retrieval-augmented memory and custom formatting.</div>
-      <div><strong>Smart Scaffolding</strong><br />Generates proposal outlines (Exec Summary, Tech Approach, Compliance Matrix) tailored to each solicitation.</div>
-      <div><strong>Human-in-the-Loop</strong><br />You remain in control — AI drafts, you refine. Final outputs are client-ready and aligned to mission.</div>
+    <h2>Core Capabilities</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Opportunity Detection</h3>
+        <p>Monitors federal portals like SAM.gov and automatically fetches relevant opportunities.</p>
+      </div>
+      <div class="feature">
+        <h3>Go/No-Go Intelligence</h3>
+        <p>Aligns each opportunity to your NAICS, scope, past performance, and mission priorities.</p>
+      </div>
+      <div class="feature">
+        <h3>Risk Analysis</h3>
+        <p>Evaluates legal, pricing, and geopolitical risks using real-time and historical data.</p>
+      </div>
+      <div class="feature">
+        <h3>Subcontractor Matching</h3>
+        <p>Recommends partners or vendors based on pricing, performance, and technical fit.</p>
+      </div>
+      <div class="feature">
+        <h3>Compliance Drafting</h3>
+        <p>Auto-generates NDAs, TAs, teaming agreements, and regulatory documents.</p>
+      </div>
+      <div class="feature">
+        <h3>Proposal Builder</h3>
+        <p>Creates technical narratives, pricing volumes, and supporting schedules—instantly.</p>
+      </div>
     </div>
   </section>
 
   <section class="section">
-    <h2 class="section-title"> Project Roadmap</h2>
-    <div class="roadmap">
-      <div><strong>Phase 1:</strong> SAM.gov Integration, Opportunity Tracking</div>
-      <div><strong>Phase 2:</strong> Cost & Staffing Intelligence, Financial Modeling</div>
-      <div><strong>Phase 3:</strong> LLM-based Proposal Generation (RAG + Prompt Logic)</div>
-      <div><strong>Phase 4:</strong> Proposal Finalization Dashboard & Export Engine</div>
+    <h2>Why Choose Proposal Writer?</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Secure and Private</h3>
+        <p>Runs on your servers or private cloud—no data ever leaves your control.</p>
+      </div>
+      <div class="feature">
+        <h3>GovCon-Tuned LLM</h3>
+        <p>Trained on real solicitations, FAR/DFARS, and winning proposals.</p>
+      </div>
+      <div class="feature">
+        <h3>Results That Win</h3>
+        <p>Proposal Writer delivers measurable gains in proposal quality and award rates.</p>
+      </div>
     </div>
-  </section>
-
-  <section class="section" style="text-align: center;">
-    <h2 class="section-title"> Want to Learn More?</h2>
-    <p>Proposal Writer is currently in closed development. For partnerships, investor demos, or access inquiries, please connect via our secure channels.</p>
-    <a href="https://github.com/Quartermasters-FZC/aliff-proposal-writer">
-      <button class="cta">Explore Repository</button>
-    </a>
   </section>
 
   <footer>
     &copy; 2025 Aliff Capital & Quartermasters FZC. All rights reserved.
   </footer>
 
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.3, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 },
-        move: { enable: true, speed: 1, direction: "none", random: false, straight: false, out_mode: "out" }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  </script>
 </body>
 </html>
